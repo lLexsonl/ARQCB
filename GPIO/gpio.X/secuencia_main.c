@@ -20,11 +20,15 @@ intended publication of this material.
 #include <xc.h>
 #include <pic18f4550.h>  /*Header file PIC18f4550 definitions*/
 #include "fuses.h"
+#include "pinout.h"
 
 void secuencial_Efecto1(void);
 void secuencial_Efecto2(void);
 void secuencial_Efecto3(void);
 void secuencial_Efecto4(void);
+void secuencial_Efecto5(void);
+void secuencial_Efecto6(void);
+void efecto_velocidad(void);
 
 unsigned char efecto = 1;
 unsigned long velocidad = 1;
@@ -32,14 +36,14 @@ unsigned long velocidad = 1;
 int main(void) {
     TRISD = 0;
     LATD = 0;
-    TRISBbits.TRISB7 = 1;
-    TRISBbits.TRISB6 = 1;
+    efecto_pin = INPUT;
+    velocidad_pin = INPUT;
     INTCON2bits.RBPU = 0;
     while (1) {
         //efecto
-        if (!PORTBbits.RB7) {
+        if (!efecto_value) {
             __delay_ms(50);
-            if(++efecto==5){efecto=1;}
+            if(++efecto==7){efecto=1;}
         }
         switch (efecto) {
             case 1: secuencial_Efecto1();
@@ -50,6 +54,10 @@ int main(void) {
                 break;
             case 4: secuencial_Efecto4();
                 break;
+            case 5: secuencial_Efecto5();
+                break;
+            case 6: secuencial_Efecto6();
+                break;
         }
     }
     return 1;
@@ -58,45 +66,21 @@ int main(void) {
 void secuencial_Efecto1(void) {
     for (int i = 0; i < 8; i++) {
         LATD = 1 << i;
-        if(velocidad==1){__delay_ms(50);}
-        else if(velocidad==2){__delay_ms(100);}
-        else if(velocidad==3){__delay_ms(200);}
-        else if(velocidad==4){__delay_ms(400);}
-        //velocidad
-        if (!PORTBbits.RB6) {
-            __delay_ms(50);
-            if(++velocidad==5){velocidad=1;}
-        }
+        efecto_velocidad();
     }
 }
 
 void secuencial_Efecto2(void) {
     for (int i = 0, j = 7; i < 8; i++, j--) {
         LATD = (1 << i) + (1 << j);
-        if(velocidad==1){__delay_ms(50);}
-        else if(velocidad==2){__delay_ms(100);}
-        else if(velocidad==3){__delay_ms(200);}
-        else if(velocidad==4){__delay_ms(400);}
-        //velocidad
-        if (!PORTBbits.RB6) {
-            __delay_ms(50);
-            if(++velocidad==5){velocidad=1;}
-        }
+        efecto_velocidad();
     }
 }
 
 void secuencial_Efecto3(void) {
     for (int i = 0; i < 9; i++) {
         LATD = (1 << i) - 1;
-        if(velocidad==1){__delay_ms(50);}
-        else if(velocidad==2){__delay_ms(100);}
-        else if(velocidad==3){__delay_ms(200);}
-        else if(velocidad==4){__delay_ms(400);}
-        //velocidad
-        if (!PORTBbits.RB6) {
-            __delay_ms(50);
-            if(++velocidad==5){velocidad=1;}
-        }
+        efecto_velocidad();
     }
 }
 
@@ -106,14 +90,36 @@ void secuencial_Efecto4(void) {
         LATD = m+n;
         m += (1 << i) & 0x0f;
         n += (1 >> (7-i)) & 0xf0;
-        if(velocidad==1){__delay_ms(50);}
-        else if(velocidad==2){__delay_ms(100);}
-        else if(velocidad==3){__delay_ms(200);}
-        else if(velocidad==4){__delay_ms(400);}
-        //velocidad
-        if (!PORTBbits.RB6) {
-            __delay_ms(50);
-            if(++velocidad==5){velocidad=1;}
-        }
+        efecto_velocidad();
+    }
+}
+
+void secuencial_Efecto5(void) {
+    for (int i = 0; i < 8; i+2) {
+        LATD = 1 << i;
+        efecto_velocidad();
+    }
+    for (int i = 1; i < 8; i+2) {
+        LATD = 1 << i;
+        efecto_velocidad();
+    }
+}
+
+void secuencial_Efecto6(void) {
+    for (int i = 1; i < 9; i+2) {
+        LATD = (1 << i) - 2;
+        efecto_velocidad();
+    }
+}
+
+void efecto_velocidad(void) {
+    if(velocidad==1){__delay_ms(50);}
+    else if(velocidad==2){__delay_ms(100);}
+    else if(velocidad==3){__delay_ms(200);}
+    else if(velocidad==4){__delay_ms(400);}
+    //velocidad
+    if (!PORTBbits.RB6) {
+        __delay_ms(50);
+        if(++velocidad==5){velocidad=1;}
     }
 }

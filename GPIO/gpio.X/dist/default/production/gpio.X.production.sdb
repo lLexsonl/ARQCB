@@ -1,39 +1,35 @@
-[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"62 D:\mplab\sources\common\float.c
-[v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 D:\mplab\sources\common\ftadd.c
-[v ___ftadd __ftadd `(f  1 e 3 0 ]
-"54 D:\mplab\sources\common\ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"62 D:\mplab\sources\common\ftmul.c
-[v ___ftmul __ftmul `(f  1 e 3 0 ]
-"20 D:\mplab\sources\common\ftsub.c
-[v ___ftsub __ftsub `(f  1 e 3 0 ]
-"10 D:\mplab\sources\common\sprcadd.c
-[v ___fladd __fladd `(d  1 e 3 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
 "245
-[v ___flsub __flsub `(d  1 e 3 0 ]
-"11 D:\mplab\sources\common\sprcdiv.c
-[v ___fldiv __fldiv `(d  1 e 3 0 ]
-"8 D:\mplab\sources\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 3 0 ]
-"15 D:\mplab\sources\common\Umul32.c
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"32 C:\Users\ASUS\Documents\GitHub\ARQCB\GPIO\gpio.X\secuencia_main.c
+"91 C:\Program Files\Microchip\xc8\v2.31\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"24 F:\2020\ArquitecturaComputacional\Corte3\ProyectosClase\fork\ARQCB\GPIO\gpio.X\gpio_main.c
 [v _main main `(i  1 e 2 0 ]
-"58
-[v _secuencial_Efecto1 secuencial_Efecto1 `(v  1 e 1 0 ]
-"73
-[v _secuencial_Efecto2 secuencial_Efecto2 `(v  1 e 1 0 ]
-"88
-[v _secuencial_Efecto3 secuencial_Efecto3 `(v  1 e 1 0 ]
-"103
-[v _secuencial_Efecto4 secuencial_Efecto4 `(v  1 e 1 0 ]
-[s S32 . 1 `uc 1 RB0 1 0 :1:0 
+[s S74 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -42,8 +38,8 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"2448 D:\mplab\include\pic18f4550.h
-[s S111 . 1 `uc 1 INT0 1 0 :1:0 
+"2483 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18Fxxxx_DFP/1.2.26/xc8\pic\include\proc\pic18f4550.h
+[s S114 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -51,14 +47,33 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S119 . 1 `uc 1 . 1 0 :3:0 
+[s S122 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S122 . 1 `S32 1 . 1 0 `S111 1 . 1 0 `S119 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES122  1 e 1 @3969 ]
-"3221
-[v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S23 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S125 . 1 `S74 1 . 1 0 `S114 1 . 1 0 `S122 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES125  1 e 1 @3969 ]
+[s S150 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"3290
+[s S159 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S168 . 1 `S150 1 . 1 0 `S159 1 . 1 0 ]
+[v _LATDbits LATDbits `VES168  1 e 1 @3980 ]
+[s S65 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -67,69 +82,34 @@
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
-"3612
-[u S41 . 1 `S23 1 . 1 0 `S32 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES41  1 e 1 @3987 ]
-"3954
-[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S63 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 NOT_RBPU 1 0 :1:7 
+"3657
+[u S83 . 1 `S65 1 . 1 0 `S74 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES83  1 e 1 @3987 ]
+[s S25 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
 ]
-"8395
-[s S66 . 1 `uc 1 RBIP 1 0 :1:0 
-`uc 1 . 1 0 :1:1 
-`uc 1 TMR0IP 1 0 :1:2 
-`uc 1 . 1 0 :1:3 
-`uc 1 INTEDG2 1 0 :1:4 
-`uc 1 INTEDG1 1 0 :1:5 
-`uc 1 INTEDG0 1 0 :1:6 
-`uc 1 nRBPU 1 0 :1:7 
+"4033
+[s S34 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
 ]
-[s S75 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 T0IP 1 0 :1:2 
-`uc 1 . 1 0 :4:3 
-`uc 1 RBPU 1 0 :1:7 
-]
-[u S80 . 1 `S63 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES80  1 e 1 @4081 ]
-"29 C:\Users\ASUS\Documents\GitHub\ARQCB\GPIO\gpio.X\secuencia_main.c
-[v _efecto efecto `uc  1 e 1 0 ]
-"30
-[v _velocidad velocidad `ul  1 e 4 0 ]
-"32
+[u S43 . 1 `S25 1 . 1 0 `S34 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES43  1 e 1 @3989 ]
+"7986
+[v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
+"24 F:\2020\ArquitecturaComputacional\Corte3\ProyectosClase\fork\ARQCB\GPIO\gpio.X\gpio_main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"56
-} 0
-"103
-[v _secuencial_Efecto4 secuencial_Efecto4 `(v  1 e 1 0 ]
-{
-"105
-[v secuencial_Efecto4@i i `i  1 a 2 3 ]
-"104
-[v secuencial_Efecto4@n n `VEui  1 a 2 7 ]
-[v secuencial_Efecto4@m m `VEui  1 a 2 5 ]
-"119
-} 0
-"88
-[v _secuencial_Efecto3 secuencial_Efecto3 `(v  1 e 1 0 ]
-{
-"89
-[v secuencial_Efecto3@i i `i  1 a 2 2 ]
-"101
-} 0
-"73
-[v _secuencial_Efecto2 secuencial_Efecto2 `(v  1 e 1 0 ]
-{
-"74
-[v secuencial_Efecto2@i i `i  1 a 2 6 ]
-[v secuencial_Efecto2@j j `i  1 a 2 4 ]
-"86
-} 0
-"58
-[v _secuencial_Efecto1 secuencial_Efecto1 `(v  1 e 1 0 ]
-{
-"59
-[v secuencial_Efecto1@i i `i  1 a 2 2 ]
-"71
+"43
 } 0
