@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=D:\mplab\dat\en_msgs.txt -cs \
   -h+dist/default/production\test.X.production.sym \
   --cmf=dist/default/production\test.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\ASUS\AppData\Local\Temp\s62s.2 \
+  -oC:\Users\ASUS\AppData\Local\Temp\s4ak.2 \
   -Mdist/default/production/test.X.production.map -E1 -ver=XC8 \
   -ASTACK=060h-07ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0800h-08FFhx120 -AMEDIUMCONST=0800h-07FFFh -ACOMRAM=01h-05Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ASUS\AppData\Local\Temp\s62s.obj \
+  C:\Users\ASUS\AppData\Local\Temp\s4ak.obj \
   dist/default/production\test.X.production.obj 
 
 Object code version is 3.11
@@ -35,21 +35,24 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ASUS\AppData\Local\Temp\s62s.obj
+C:\Users\ASUS\AppData\Local\Temp\s4ak.obj
                 init                                  0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\test.X.production.obj
-                text0                              7FF6     7FF6        4     3FFB       0
-                cinit                              7FFA     7FFA        6     3FFD       0
+                text1                              7FCA     7FCA       36     3FE5       0
+                text0                              7FA2     7FA2       28     3FD1       0
+                cstackCOMRAM                          1        1        6        1       1
+                cinit                              7F9C     7F9C        6     3FCE       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 init                                  0        0        4         0
-                text0                              7FF6     7FF6        4         0
-                cinit                              7FFA     7FFA        6         0
+                text1                              7FCA     7FCA       36         0
+                text0                              7FA2     7FA2       28         0
+                cinit                              7F9C     7F9C        6         0
 
         CLASS   CONST          
 
@@ -58,6 +61,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
+                cstackCOMRAM                          1        1        6         1
 
         CLASS   ABS1           
 
@@ -98,8 +102,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                text0                          007FF6  000004  007FFA      3FFB       0  CODE    
-                cinit                          007FFA  000006  008000      3FFD       0  CODE    
+                cstackCOMRAM                   000001  000006  000007         1       1  COMRAM  
+                cinit                          007F9C  000006  007FA2      3FCE       0  CODE    
+                text0                          007FA2  000028  007FCA      3FD1       0  CODE    
+                text1                          007FCA  000036  008000      3FE5       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -115,19 +121,26 @@ UNUSED ADDRESS RANGES
         BANK5            000500-0005FF              100
         BANK6            000600-0006FF              100
         BANK7            000700-0007FF              100
-        BIGRAM           000001-0007FF              7FF
-        CODE             000004-007FF5             7FF2
-        COMRAM           000001-00005F               5F
-        CONST            000004-007FF5             7FF2
+        BIGRAM           000007-0007FF              7F9
+        CODE             000004-007F9B             7F98
+        COMRAM           000007-00005F               59
+        CONST            000004-007F9B             7F98
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000800-007FF5             77F6
+        MEDIUMCONST      000800-007F9B             779C
         RAM              000060-0007FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       000800-007FF5              100
+        SMALLCONST       000800-007F9B              100
         STACK            000060-0007FF              7A0
 
                                   Symbol Table
 
+MSdelay@i                cstackCOMRAM 000003
+MSdelay@j                cstackCOMRAM 000005
+MSdelay@val              cstackCOMRAM 000001
+_LATB                    (abs)        000F8A
+_MSdelay                 text1        007FCA
+_OSCCON                  (abs)        000FD3
+_TRISB                   (abs)        000F93
 __CFG_BOR$OFF            (abs)        000000
 __CFG_BORV$3             (abs)        000000
 __CFG_CCP2MX$ON          (abs)        000000
@@ -137,7 +150,6 @@ __CFG_CP2$OFF            (abs)        000000
 __CFG_CP3$OFF            (abs)        000000
 __CFG_CPB$OFF            (abs)        000000
 __CFG_CPD$OFF            (abs)        000000
-__CFG_CPUDIV$OSC1_PLL2   (abs)        000000
 __CFG_EBTR0$OFF          (abs)        000000
 __CFG_EBTR1$OFF          (abs)        000000
 __CFG_EBTR2$OFF          (abs)        000000
@@ -151,10 +163,8 @@ __CFG_LPT1OSC$OFF        (abs)        000000
 __CFG_LVP$OFF            (abs)        000000
 __CFG_MCLRE$OFF          (abs)        000000
 __CFG_PBADEN$ON          (abs)        000000
-__CFG_PLLDIV$1           (abs)        000000
 __CFG_PWRT$OFF           (abs)        000000
 __CFG_STVREN$ON          (abs)        000000
-__CFG_USBDIV$1           (abs)        000000
 __CFG_VREGEN$OFF         (abs)        000000
 __CFG_WDT$OFF            (abs)        000000
 __CFG_WDTPS$32768        (abs)        000000
@@ -218,13 +228,14 @@ __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
 __Hsmallconst            smallconst   000000
 __Hspace_0               (abs)        30000E
-__Hspace_1               (abs)        000000
+__Hspace_1               (abs)        000007
 __Hspace_2               (abs)        000000
 __Hstack                 stack        000000
 __Hstruct                struct       000000
 __Htemp                  temp         000000
 __Htext                  text         000000
 __Htext0                 text0        000000
+__Htext1                 text1        000000
 __LRAM                   (abs)        000001
 __Labs1                  abs1         000000
 __Lbank0                 bank0        000000
@@ -284,8 +295,9 @@ __Lstruct                struct       000000
 __Ltemp                  temp         000000
 __Ltext                  text         000000
 __Ltext0                 text0        000000
+__Ltext1                 text1        000000
 __S0                     (abs)        30000E
-__S1                     (abs)        000000
+__S1                     (abs)        000007
 __S2                     (abs)        000000
 ___inthi_sp              stack        000000
 ___intlo_sp              stack        000000
@@ -294,18 +306,21 @@ ___rparam_used           (abs)        000001
 ___sp                    stack        000000
 __accesstop              (abs)        000060
 __activetblptr           (abs)        000000
-__end_of__initialization cinit        007FFA
-__end_of_main            text0        007FFA
-__initialization         cinit        007FFA
+__end_of_MSdelay         text1        008000
+__end_of__initialization cinit        007F9C
+__end_of_main            text0        007FCA
+__initialization         cinit        007F9C
 __mediumconst            mediumconst  000000
-__pcinit                 cinit        007FFA
-__pcstackCOMRAM          cstackCOMRAM 000000
-__ptext0                 text0        007FF6
+__pcinit                 cinit        007F9C
+__pcstackCOMRAM          cstackCOMRAM 000001
+__ptext0                 text0        007FA2
+__ptext1                 text1        007FCA
 __ramtop                 ramtop       000800
+__size_of_MSdelay        (abs)        000000
 __size_of_main           (abs)        000000
 __smallconst             smallconst   000000
-_main                    text0        007FF6
-end_of_initialization    cinit        007FFA
+_main                    text0        007FA2
+end_of_initialization    cinit        007F9C
 intlevel0                text         000000
 intlevel1                text         000000
 intlevel2                text         000000
@@ -313,14 +328,14 @@ intlevel3                text         000000
 stackhi                  (abs)        0007FF
 stacklo                  (abs)        000060
 start                    init         000000
-start_initialization     cinit        007FFA
+start_initialization     cinit        007F9C
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 95 in file "test_main.c"
+		line 97 in file "test_main.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -328,7 +343,7 @@ FUNCTION INFORMATION:
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		None
+		wreg, status,2, status,0, cstack
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -339,10 +354,41 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0       0       0       0       0
       Totals:         0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
+ Hardware stack levels required when called:    1
+ This function calls:
+		_MSdelay
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _MSdelay *****************
+ Defined at:
+		line 110 in file "test_main.c"
+ Parameters:    Size  Location     Type
+  val             2    0[COMRAM] unsigned int 
+ Auto vars:     Size  Location     Type
+  j               2    4[COMRAM] unsigned int 
+  i               2    2[COMRAM] unsigned int 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7
+      Params:         2       0       0       0       0       0       0       0       0
+      Locals:         4       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
+ Hardware stack levels used:    1
  This function calls:
 		Nothing
  This function is called by:
-		Startup code after reset
+		_main
  This function uses a non-reentrant model
 
 
@@ -351,12 +397,13 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initialization		CODE           	7FFA	0000	1
+		__initialization		CODE           	7F9C	0000	1
 
 shared estimated size: 1
 
 test_main.c
-		_main          		CODE           	7FF6	0000	5
+		_main          		CODE           	7FA2	0000	41
+		_MSdelay       		CODE           	7FCA	0000	55
 
-test_main.c estimated size: 5
+test_main.c estimated size: 96
 

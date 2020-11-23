@@ -33,11 +33,19 @@ void efecto_velocidad(void);
 unsigned char efecto = 1;
 unsigned long velocidad = 1;
 
+
 int main(void) {
+<<<<<<< HEAD
     TRISD = 0;
     LATD = 0;
     efecto_pin = INPUT;
     velocidad_pin = INPUT;
+=======
+    CFG_LEDS = OUTPUT;
+    LEDS = OFF;
+    BTN_EFECTO = INPUT;
+    TRISBbits.TRISB6 = 0;
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
     INTCON2bits.RBPU = 0;
     while (1) {
         //efecto
@@ -45,6 +53,7 @@ int main(void) {
             __delay_ms(50);
             if(++efecto==7){efecto=1;}
         }
+        
         switch (efecto) {
             case 1: secuencial_Efecto1();
                 break;
@@ -59,6 +68,7 @@ int main(void) {
             case 6: secuencial_Efecto6();
                 break;
         }
+        
     }
     return 1;
 }
@@ -89,6 +99,7 @@ void secuencial_Efecto4(void) {
     for (int i = 0; i < 5; i++) {
         LATD = m+n;
         m += (1 << i) & 0x0f;
+<<<<<<< HEAD
         n += (1 >> (7-i)) & 0xf0;
         efecto_velocidad();
     }
@@ -121,5 +132,17 @@ void efecto_velocidad(void) {
     if (!PORTBbits.RB6) {
         __delay_ms(50);
         if(++velocidad==5){velocidad=1;}
+=======
+        n += (1 << (7-i)) & 0xf0;
+        if(velocidad==1){__delay_ms(50);}
+        else if(velocidad==2){__delay_ms(100);}
+        else if(velocidad==3){__delay_ms(200);}
+        else if(velocidad==4){__delay_ms(400);}
+        //velocidad
+        if (!PORTBbits.RB6) {
+            __delay_ms(50);
+            if(++velocidad==5){velocidad=1;}
+        }
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
     }
 }

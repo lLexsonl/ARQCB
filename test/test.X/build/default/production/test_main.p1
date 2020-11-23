@@ -1,12 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"28 test_main.c
-[p x PLLDIV=1 ]
-"29
-[p x CPUDIV=OSC1_PLL2 ]
-"30
-[p x USBDIV=1 ]
-"33
+"7882 D:\mplab\include\pic18f4550.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"3580
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"3033
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"95 test_main.c
+[v _MSdelay `(v ~T0 @X0 0 ef1`ui ]
+"33 test_main.c
 [p x FOSC=INTOSCIO_EC ]
 "34
 [p x FCMEN=OFF ]
@@ -3584,13 +3586,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-"95 test_main.c
+[; ;test_main.c: 95: void MSdelay(unsigned int);
+"97 test_main.c
 [v _main `(v ~T0 @X0 1 ef ]
+"98
 {
-[; ;test_main.c: 95: void main(){
+[; ;test_main.c: 97: void main()
+[; ;test_main.c: 98: {
 [e :U _main ]
 [f ]
-[; ;test_main.c: 100: }
+[; ;test_main.c: 99: OSCCON=0x72;
+"99
+[e = _OSCCON -> -> 114 `i `uc ]
+[; ;test_main.c: 100: TRISB=0x00;
 "100
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;test_main.c: 101: while(1)
+"101
+[e :U 364 ]
+[; ;test_main.c: 102: {
+"102
+{
+[; ;test_main.c: 103: LATB = 0xff;
+"103
+[e = _LATB -> -> 255 `i `uc ]
+[; ;test_main.c: 104: MSdelay(500);
+"104
+[e ( _MSdelay (1 -> -> 500 `i `ui ]
+[; ;test_main.c: 105: LATB = 0;
+"105
+[e = _LATB -> -> 0 `i `uc ]
+[; ;test_main.c: 106: MSdelay(500);
+"106
+[e ( _MSdelay (1 -> -> 500 `i `ui ]
+"107
+}
+[e :U 363 ]
+"101
+[e $U 364  ]
+[e :U 365 ]
+[; ;test_main.c: 107: }
+[; ;test_main.c: 108: }
+"108
 [e :UE 362 ]
+}
+"110
+[v _MSdelay `(v ~T0 @X0 1 ef1`ui ]
+"111
+{
+[; ;test_main.c: 110: void MSdelay(unsigned int val)
+[; ;test_main.c: 111: {
+[e :U _MSdelay ]
+"110
+[v _val `ui ~T0 @X0 1 r1 ]
+"111
+[f ]
+"112
+[v _i `ui ~T0 @X0 1 a ]
+[v _j `ui ~T0 @X0 1 a ]
+[; ;test_main.c: 112: unsigned int i,j;
+[; ;test_main.c: 113: for(i=0;i<val;i++)
+"113
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 370  ]
+"114
+[e :U 367 ]
+[; ;test_main.c: 114: for(j=0;j<165;j++);
+{
+[e = _j -> -> 0 `i `ui ]
+[e $ < _j -> -> 165 `i `ui 371  ]
+[e $U 372  ]
+[e :U 371 ]
+[e ++ _j -> -> 1 `i `ui ]
+[e $ < _j -> -> 165 `i `ui 371  ]
+[e :U 372 ]
+}
+"113
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 370 ]
+[e $ < _i _val 367  ]
+[e :U 368 ]
+"114
+}
+[; ;test_main.c: 115: }
+"115
+[e :UE 366 ]
 }

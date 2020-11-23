@@ -25,9 +25,9 @@ intended publication of this material.
 // 'C' source line config statements
 
 // CONFIG1L
-#pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
-#pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
-#pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
+//#pragma config PLLDIV = 1       // PLL Prescaler Selection bits (No prescale (4 MHz oscillator input drives PLL directly))
+//#pragma config CPUDIV = OSC1_PLL2// System Clock Postscaler Selection bits ([Primary Oscillator Src: /1][96 MHz PLL Src: /2])
+//#pragma config USBDIV = 1       // USB Clock Selection bit (used in Full-Speed USB mode only; UCFG:FSEN = 1) (USB clock source comes directly from the primary oscillator block with no postscale)
 
 // CONFIG1H
 #pragma config FOSC = INTOSCIO_EC// Oscillator Selection bits (Internal oscillator, port function on RA6, EC used by USB (INTIO))
@@ -92,10 +92,24 @@ intended publication of this material.
 #include <xc.h>
 #include <pic18f4550.h>  /*Header file PIC18f4550 definitions*/
 
-void main(){
-   
-    
-    
-    
+void MSdelay(unsigned int);
+
+void main()
+{
+    OSCCON=0x72;        /* Use internal oscillator of 8MHz Frequency */
+    TRISB=0x00;         /* Set direction of PORTB as OUTPUT to which LED is connected */
+    while(1)
+    {
+        LATB = 0xff;     /* Turn ON LED for 500 ms */
+        MSdelay(500);
+        LATB = 0;        /* Turn OFF LED for 500 ms */
+        MSdelay(500);
+    }
 }
 
+void MSdelay(unsigned int val)
+{
+ unsigned int i,j;
+ for(i=0;i<val;i++)
+     for(j=0;j<165;j++);  /*This count Provide delay of 1 ms for 8MHz Frequency */
+} 

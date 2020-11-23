@@ -2,12 +2,7 @@
 # 1 "test_main.c"
 
 
-# 28
-#pragma config PLLDIV = 1
-#pragma config CPUDIV = OSC1_PLL2
-#pragma config USBDIV = 1
-
-
+# 33
 #pragma config FOSC = INTOSCIO_EC
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -4801,10 +4796,24 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 # 95 "test_main.c"
-void main(){
+void MSdelay(unsigned int);
 
-
-
-
+void main()
+{
+OSCCON=0x72;
+TRISB=0x00;
+while(1)
+{
+LATB = 0xff;
+MSdelay(500);
+LATB = 0;
+MSdelay(500);
+}
 }
 
+void MSdelay(unsigned int val)
+{
+unsigned int i,j;
+for(i=0;i<val;i++)
+for(j=0;j<165;j++);
+}

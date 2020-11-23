@@ -1,8 +1,13 @@
 /*!
-\file   Blink.c
-\date   2020-11-13
+\file   Gpio_Main.c
+\date   2020-11-18
 \author Fulvio Vivas <fulvio.vivas@unicauca.edu.co>
+<<<<<<< HEAD
 \brief  Example blink.
+=======
+\brief  Example GPIO.
+
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
 \par Copyright
 Information contained herein is proprietary to and constitutes valuable
 confidential trade secrets of unicauca, and
@@ -18,6 +23,10 @@ intended publication of this material.
 #include <pic18f4550.h>  /*Header file PIC18f4550 definitions*/
 #include "fuses.h"
 
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
 #define INPUT 1
 #define OUTPUT 0
 
@@ -33,7 +42,11 @@ intended publication of this material.
 
 #define ON_LED 1
 #define OFF_LED 0
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
 
 int main(void) {
     OSCCON=0x72;       /* Use internal oscillator of 8MHz Frequency */
@@ -43,6 +56,7 @@ int main(void) {
     TRISDbits.TRISD5 = 0;
     TRISDbits.TRISD4 = 0;
     //Configura los pines RB7-RB6-RB5-RB4 como entrada digital
+<<<<<<< HEAD
     s1 = INPUT;
     s2 = INPUT;
     s3 = INPUT;
@@ -53,6 +67,23 @@ int main(void) {
         if(!s3_read){LATDbits.LATD5=1;}else{LATDbits.LATD5=0;}
         if(!s2_read){LATDbits.LATD6=1;}else{LATDbits.LATD6=0;}
         if(!s1_read){LATDbits.LATD7=1;}else{LATDbits.LATD7=0;}
+=======
+    TRISBbits.TRISB7 = 1;
+    TRISBbits.TRISB6 = 1;
+    TRISBbits.TRISB5 = 1;
+    TRISBbits.TRISB4 = 1;
+
+    while (1) {
+        if(!PORTBbits.RB4){
+            LATDbits.LATD4=1;
+        }
+        else{
+            LATDbits.LATD4=0;
+        }
+        if(!PORTBbits.RB5){LATDbits.LATD5=1;}else{LATDbits.LATD5=0;}
+        if(!PORTBbits.RB6){LATDbits.LATD6=1;}else{LATDbits.LATD6=0;}
+        if(!PORTBbits.RB7){LATDbits.LATD7=1;}else{LATDbits.LATD7=0;}
+>>>>>>> 52d139fa3ee4e18d1a24ab34a3c8c66ff3bc03e8
     }
     return 1;
 }
