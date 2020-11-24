@@ -31,7 +31,7 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 D:\mplab\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"32 C:\Users\ASUS\Documents\GitHub\ARQCA\UART\uart.X\uart_lm35.c
+"32 C:\Users\ASUS\Documents\GitHub\ARQCB\UART\uart.X\uart_lm35.c
 [v _main main `(v  1 e 1 0 ]
 [s S53 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
@@ -215,7 +215,7 @@
 ]
 [u S35 . 1 `S21 1 . 1 0 `S27 1 . 1 0 ]
 [v _OSCCONbits OSCCONbits `VES35  1 e 1 @4051 ]
-"27 C:\Users\ASUS\Documents\GitHub\ARQCA\UART\uart.X\uart_lm35.c
+"27 C:\Users\ASUS\Documents\GitHub\ARQCB\UART\uart.X\uart_lm35.c
 [v _buffer_TX buffer_TX `[18]uc  1 e 18 0 ]
 "28
 [v _value_adc value_adc `i  1 e 2 0 ]
